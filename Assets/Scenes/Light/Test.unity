@@ -5145,7 +5145,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_spawner: {fileID: 283014032}
-  m_wave: {fileID: 11400000, guid: 21cc4a93849e4e648860a96ef560b897, type: 2}
+  m_waves:
+  - {fileID: 11400000, guid: 21cc4a93849e4e648860a96ef560b897, type: 2}
+  - {fileID: 11400000, guid: b938972dfeba80f468a7833ff5f7a917, type: 2}
+  - {fileID: 11400000, guid: 21cc4a93849e4e648860a96ef560b897, type: 2}
+  m_delayBetweenWaves:
+    Min: 5
+    Max: 10
 --- !u!1 &1851302639
 GameObject:
   m_ObjectHideFlags: 0
