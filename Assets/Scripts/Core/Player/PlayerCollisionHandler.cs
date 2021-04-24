@@ -19,7 +19,6 @@ namespace Game
             if (m_layersConfig.Enemy.value == (m_layersConfig.Enemy.value | (1 << layer)))
             {
                 //TODO:
-                Debug.Log("Collision with an enemy");
             }
         }
     }

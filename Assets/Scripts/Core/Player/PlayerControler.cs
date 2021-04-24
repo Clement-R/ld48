@@ -72,6 +72,10 @@ namespace Game
 
             float horizontalVelocity = 0f;
 
+            // Facing direction
+            if (m_input.x != 0)
+                transform.right = Vector2.right * m_input.x;
+
             if (m_input.x != 0)
             {
                 horizontalVelocity = m_playerConfig.PlayerHorizontalSpeed * m_input.x;
