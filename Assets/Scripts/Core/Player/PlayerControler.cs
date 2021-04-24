@@ -3,9 +3,9 @@ using System.Collections;
 
 using UnityEngine;
 
-using Example.Shared;
+using Game.Shared;
 
-namespace Example.Light
+namespace Game
 {
     public class PlayerControler : PausableMonoBehaviour
     {

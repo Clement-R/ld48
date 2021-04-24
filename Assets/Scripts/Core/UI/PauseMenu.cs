@@ -1,24 +1,20 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Example.Light
+namespace Game
 {
-    public class GameOverMenu : Menu
+    public class PauseMenu : Menu
     {
-        [SerializeField] private Button m_restartButton;
+        [SerializeField] private Button m_resumeButton;
         [SerializeField] private Button m_mainMenuButton;
 
         private GameManager m_gameManager;
 
-        private void Start()
+        void Start()
         {
-            m_gameManager = GameManager.Instance;
+            m_gameManager = GameManager.Instance;;
 
-            m_restartButton.onClick.AddListener(Restart);
+            m_resumeButton.onClick.AddListener(Resume);
             m_mainMenuButton.onClick.AddListener(GoToMainMenu);
 
             m_gameManager.GameState.OnValueChanged += GameStateChanged;
@@ -34,7 +30,7 @@ namespace Example.Light
 
         private void GameStateChanged(EGameState p_state)
         {
-            if (p_state == EGameState.GAME_OVER)
+            if (p_state == EGameState.PAUSE)
             {
                 m_group.Show();
             }
@@ -44,10 +40,9 @@ namespace Example.Light
             }
         }
 
-        private void Restart()
+        private void Resume()
         {
             m_gameManager.GameState.Value = EGameState.GAME;
-            m_gameManager.ReloadLevel();
         }
 
         private void GoToMainMenu()

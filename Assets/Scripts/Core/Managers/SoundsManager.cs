@@ -3,7 +3,7 @@ using UnityEngine;
 using Cake.Opera.Data;
 using Cake.Utils;
 
-namespace Example.Light
+namespace Game
 {
     public class SoundsManager : Singleton<SoundsManager>, ISoundSystem
     {

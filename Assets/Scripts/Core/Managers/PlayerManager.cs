@@ -3,7 +3,7 @@ using UnityEngine;
 using Cake.Millefeuille;
 using Cake.Utils;
 
-namespace Example.Light
+namespace Game
 {
     public class PlayerManager : Singleton<PlayerManager>
     {

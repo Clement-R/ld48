@@ -6,9 +6,9 @@ using UnityEngine;
 
 using Cake.Millefeuille;
 
-using Example.Shared;
+using Game.Shared;
 
-namespace Example.Light
+namespace Game
 {
     public class PlayerCrushBehaviour : MonoBehaviour
     {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
-namespace Example.Light
+namespace Game
 {
     public class CameraBehaviour : MonoBehaviour
     {

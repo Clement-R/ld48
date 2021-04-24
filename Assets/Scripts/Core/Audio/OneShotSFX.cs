@@ -1,6 +1,6 @@
 using Cake.Opera;
 
-namespace Example.Light
+namespace Game
 {
     public class OneShotSFX : AOneShotSFX
     {

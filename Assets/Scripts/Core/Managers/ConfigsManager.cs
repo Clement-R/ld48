@@ -5,7 +5,7 @@ using System.Linq;
 using Cake.Millefeuille;
 using Cake.Utils;
 
-namespace Example.Light
+namespace Game
 {
     public class ConfigsManager : Singleton<ConfigsManager>
     {

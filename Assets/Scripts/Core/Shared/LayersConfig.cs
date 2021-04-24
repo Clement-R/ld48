@@ -2,7 +2,7 @@ using UnityEngine;
 
 using Cake.Millefeuille;
 
-namespace Example.Shared
+namespace Game.Shared
 {
     [CreateAssetMenu(fileName = "LayersConfig", menuName = "Configs/LayersConfig", order = 0)]
     public class LayersConfig : Configuration

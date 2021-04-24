@@ -2,7 +2,7 @@ using UnityEngine;
 
 using Cake.Millefeuille;
 
-namespace Example.Light
+namespace Game
 {
     public abstract class PausableMonoBehaviour : MonoBehaviour
     {

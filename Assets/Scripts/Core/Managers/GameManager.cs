@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using Cake.Utils;
 using Cake.Utils.Data;
 
-namespace Example.Light
+namespace Game
 {
     public class GameManager : Singleton<GameManager>
     {
