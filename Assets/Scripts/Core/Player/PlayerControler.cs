@@ -15,6 +15,7 @@ namespace Game
 
         private Rigidbody2D m_rb;
         private BoxCollider2D m_collider;
+        private Health m_health;
         private Vector2 m_input;
         private bool m_isGrounded = true;
         private bool m_initialized = false;
@@ -25,6 +26,7 @@ namespace Game
 
             m_rb = GetComponent<Rigidbody2D>();
             m_collider = GetComponent<BoxCollider2D>();
+            m_health = GetComponent<Health>();
 
             m_playerManager = PlayerManager.Instance;
             m_playerConfig = ConfigsManager.Instance.Get<PlayerConfig>();
@@ -43,7 +45,7 @@ namespace Game
         {
             base.Update();
 
-            if (!m_initialized)
+            if (!m_initialized || !m_health.Alive)
                 return;
 
             m_isGrounded = CheckGrounded();
@@ -67,7 +69,7 @@ namespace Game
         {
             base.FixedUpdate();
 
-            if (m_rb == null)
+            if (m_rb == null || !m_health.Alive)
                 return;
 
             float horizontalVelocity = 0f;
@@ -100,6 +102,17 @@ namespace Game
         {
             m_rb.velocity = m_rb.velocity.SetY(0f);
             m_rb.AddForce(Vector2.up * m_playerConfig.PlayerJumpHeight, ForceMode2D.Impulse);
+        }
+
+        public void KnockBack(Vector2 p_direction)
+        {
+            m_rb.velocity = Vector2.zero;
+
+            GetComponent<Collider2D>().enabled = false;
+
+            var force = Vector2.up * m_playerConfig.PlayerJumpHeight + p_direction * m_playerConfig.PlayerHorizontalSpeed;
+            Debug.Log(force);
+            m_rb.AddForce(force, ForceMode2D.Impulse);
         }
     }
 }

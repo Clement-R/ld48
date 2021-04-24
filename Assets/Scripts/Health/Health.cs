@@ -8,6 +8,7 @@ namespace Game
     {
         public Action OnDeath;
 
+        public bool Alive => m_health > 0;
         public int Value => m_health;
         [SerializeField] private int m_baseHealth;
 
