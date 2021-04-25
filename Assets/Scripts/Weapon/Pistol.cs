@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game
 {
-    public class Pistol : WeaponBehavior
+    public class Pistol : Weapon
     {
         [SerializeField] protected float m_bulletSpeed;
 

@@ -5,15 +5,15 @@ namespace Game
     public class PlayerWeapon : MonoBehaviour
     {
         [SerializeField] private Transform m_handAnchor;
-        [SerializeField] private WeaponBehavior m_baseWeapon;
+        [SerializeField] private Weapon m_baseWeapon;
         [SerializeField] private float m_throwHorizontalSpeed = 40f;
         [SerializeField] private float m_throwVerticalSpeed = 20f;
 
-        private WeaponBehavior m_currentWeapon = null;
+        private Weapon m_currentWeapon = null;
 
         private void Start()
         {
-            EquipWeapon(m_baseWeapon);
+            EquipWeapon(m_baseWeapon, true);
         }
 
         private void Update()
@@ -29,10 +29,24 @@ namespace Game
             }
         }
 
-        public void EquipWeapon(WeaponBehavior p_weapon)
+        public void EquipWeapon(Weapon p_weapon, bool p_isTemplate = false)
         {
             ThrowCurrent();
-            m_currentWeapon = Instantiate(p_weapon, m_handAnchor);
+
+            if (p_isTemplate)
+            {
+                m_currentWeapon = Instantiate(p_weapon);
+            }
+            else
+            {
+                m_currentWeapon = p_weapon;
+            }
+
+            m_currentWeapon.Equipped();
+
+            m_currentWeapon.transform.SetParent(m_handAnchor);
+            m_currentWeapon.transform.localPosition = Vector3.zero;
+            m_currentWeapon.transform.localRotation = Quaternion.identity;
         }
 
         private void ThrowCurrent()

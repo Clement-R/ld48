@@ -67,7 +67,7 @@ namespace Game
 
             if (m_layersConfig.Ground.value == (m_layersConfig.Ground.value | (1 << layer)))
             {
-                //TODO:
+                Destroy(gameObject);
             }
         }
 

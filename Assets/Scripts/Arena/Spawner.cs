@@ -20,7 +20,7 @@ namespace Game
             foreach (var spawner in m_spawners)
             {
                 Gizmos.color = Color.red;
-                Gizmos.DrawWireSphere(spawner.position, 2f);
+                Gizmos.DrawWireSphere(spawner.position, 2.5f);
             }
         }
     }

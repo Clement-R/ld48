@@ -4,7 +4,7 @@ using Cake.Data;
 
 namespace Game
 {
-    public class Shotgun : WeaponBehavior
+    public class Shotgun : Weapon
     {
         [SerializeField] private int m_bulletPerShot = 6;
         [SerializeField] private ValueRange m_spread;

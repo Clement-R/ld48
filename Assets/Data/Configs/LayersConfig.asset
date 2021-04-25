@@ -30,3 +30,9 @@ MonoBehaviour:
   Bullet:
     serializedVersion: 2
     m_Bits: 2048
+  Weapon:
+    serializedVersion: 2
+    m_Bits: 4096
+  WeaponPickup:
+    serializedVersion: 2
+    m_Bits: 8192

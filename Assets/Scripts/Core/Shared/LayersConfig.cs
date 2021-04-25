@@ -13,5 +13,7 @@ namespace Game.Shared
         public LayerMask Obstacle;
         public LayerMask Destructible;
         public LayerMask Bullet;
+        public LayerMask Weapon;
+        public LayerMask WeaponPickup;
     }
 }
