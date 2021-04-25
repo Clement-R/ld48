@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 using Cake.Genoise;
+using Cake.Opera.Data;
 using Cake.Utils;
 using Cake.Utils.Data;
 
@@ -25,7 +26,8 @@ namespace Game
 
         [SerializeField] private TransitionUI m_transition;
         [SerializeField] private RawImage m_background;
-        [SerializeField] private GameObject m_inBetween;
+        [SerializeField] private InBetween m_inBetween;
+        [SerializeField] private SFXSound m_winSound;
 
         private int m_levelIndex = -1;
         private ArenaManager m_currentArena = null;
@@ -40,6 +42,11 @@ namespace Game
             else if (GameState.Value == EGameState.MAIN_MENU && p_state == EGameState.GAME)
             {
                 Routine.Start(_MainMenuToGame());
+            }
+            else if (GameState.Value == EGameState.GAME && p_state == EGameState.WIN)
+            {
+                SoundsManager.Instance.Play(m_winSound);
+                GameState.Value = p_state;
             }
             else
             {
@@ -82,7 +89,6 @@ namespace Game
             if (m_levelIndex >= m_levels.Count)
             {
                 SetGameState(EGameState.WIN);
-                Debug.Log("Win");
                 return;
             }
 
@@ -104,7 +110,8 @@ namespace Game
 
             // Transition to in between and remve old arena
             yield return m_transition.Show();
-            m_inBetween.SetActive(true);
+            m_inBetween.StartEffect(m_currentArena.Color, 2f);
+            m_inBetween.gameObject.SetActive(true);
             Destroy(m_currentArena.gameObject);
             yield return m_transition.Hide();
 
@@ -112,7 +119,7 @@ namespace Game
 
             // Hide in between and spawn arena
             yield return m_transition.Show();
-            m_inBetween.SetActive(false);
+            m_inBetween.gameObject.SetActive(false);
             SpawnArena(m_levels[m_levelIndex]);
             yield return m_transition.Hide();
 

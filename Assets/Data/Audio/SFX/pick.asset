@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e31cdb8bb16f5544bb0c321abaf7277, type: 3}
-  m_Name: PlayerShoot
+  m_Name: pick
   m_EditorClassIdentifier: 
-  Clip: {fileID: 0}
+  Clip: {fileID: 8300000, guid: 52f6e065c1385c54e9e340925d030db6, type: 3}
   Random: 0
   Clips: []
   VolumeRandom: 0
@@ -23,6 +23,6 @@ MonoBehaviour:
   PitchRandom: 0
   Pitch: 1
   PitchRange:
-    Min: 0
-    Max: 1
+    Min: 0.5
+    Max: 1.5
   MixerGroup: {fileID: 5553635743492457132, guid: 7757da1cbfc93d248afabfa16bbf0865, type: 2}

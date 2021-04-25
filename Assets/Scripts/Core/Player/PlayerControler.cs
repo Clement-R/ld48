@@ -3,6 +3,8 @@ using System.Collections;
 
 using UnityEngine;
 
+using Cake.Opera.Data;
+
 using Game.Shared;
 
 namespace Game
@@ -13,6 +15,10 @@ namespace Game
         public Action OnJump;
         public bool Grounded => m_isGrounded;
         public Vector2 CurrentInput => m_input;
+
+        [SerializeField] private SFXSound m_jumpSound;
+        [SerializeField] private SFXSound m_landSound;
+        [SerializeField] private SFXSound m_bumpSound;
 
         private PlayerManager m_playerManager = null;
         private PlayerConfig m_playerConfig = null;
@@ -53,11 +59,19 @@ namespace Game
             if (!m_initialized || !m_health.Alive)
                 return;
 
-            m_isGrounded = CheckGrounded();
+            var newGrounded = CheckGrounded();
+            if (newGrounded != m_isGrounded)
+            {
+                m_isGrounded = newGrounded;
+
+                if (m_isGrounded)
+                    SoundsManager.Instance.Play(m_landSound);
+            }
 
             if (Input.GetKeyDown(KeyCode.W))
             {
                 m_input.Set(m_input.x, 1f);
+                SoundsManager.Instance.Play(m_jumpSound);
             }
 
             if (Input.GetKey(KeyCode.A))
@@ -107,6 +121,7 @@ namespace Game
         {
             m_rb.velocity = m_rb.velocity.SetY(0f);
             m_rb.AddForce(Vector2.up * m_playerConfig.PlayerJumpHeight, ForceMode2D.Impulse);
+            SoundsManager.Instance.Play(m_bumpSound);
         }
 
         public void KnockBack(Vector2 p_direction)

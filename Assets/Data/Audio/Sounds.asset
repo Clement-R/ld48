@@ -14,17 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Values:
   - Event:
-      Value: SHOOT
-    Sound: {fileID: 0}
-  - Event:
       Value: JUMP
     Sound: {fileID: 0}
   - Event:
-      Value: COIN
+      Value: LAND
     Sound: {fileID: 0}
   - Event:
-      Value: PLAYER_HURT
-    Sound: {fileID: 11400000, guid: ef51d5355b4a70b4dadab8415e97ea5a, type: 2}
+      Value: BUMP
+    Sound: {fileID: 0}
   - Event:
-      Value: ENEMY_HURT
+      Value: HIT
+    Sound: {fileID: 0}
+  - Event:
+      Value: PISTOL
+    Sound: {fileID: 0}
+  - Event:
+      Value: MACHINEGUN
+    Sound: {fileID: 0}
+  - Event:
+      Value: SHOTGUN
     Sound: {fileID: 0}

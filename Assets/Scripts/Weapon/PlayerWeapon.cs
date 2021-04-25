@@ -1,5 +1,7 @@
 using UnityEngine;
 
+using Cake.Opera.Data;
+
 namespace Game
 {
     public class PlayerWeapon : MonoBehaviour
@@ -8,6 +10,8 @@ namespace Game
         [SerializeField] private Weapon m_baseWeapon;
         [SerializeField] private float m_throwHorizontalSpeed = 40f;
         [SerializeField] private float m_throwVerticalSpeed = 20f;
+        [SerializeField] private SFXSound m_throwSound;
+        [SerializeField] private SFXSound m_pickSound;
 
         private Weapon m_currentWeapon = null;
 
@@ -44,6 +48,8 @@ namespace Game
 
             m_currentWeapon.Equipped();
 
+            SoundsManager.Instance.Play(m_pickSound);
+
             m_currentWeapon.transform.SetParent(m_handAnchor);
             m_currentWeapon.transform.localPosition = Vector3.zero;
             m_currentWeapon.transform.localRotation = Quaternion.identity;
@@ -53,6 +59,8 @@ namespace Game
         {
             if (m_currentWeapon == null)
                 return;
+
+            SoundsManager.Instance.Play(m_throwSound);
 
             m_currentWeapon.transform.SetParent(null);
             m_currentWeapon.transform.rotation = Quaternion.identity;

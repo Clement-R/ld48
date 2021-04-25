@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 
+using Cake.Opera.Data;
 using Cake.Pooling;
 
 using DG.Tweening;
@@ -18,6 +19,7 @@ namespace Game
         [SerializeField] protected float m_cooldown;
         [SerializeField] protected int m_bulletPower;
         [SerializeField] protected Bullet m_bulletPrefab;
+        [SerializeField] protected SFXSound m_shootSound;
 
         protected float m_nextShot = 0f;
 
@@ -55,6 +57,7 @@ namespace Game
             if (m_canShoot)
             {
                 Shoot();
+                SoundsManager.Instance.Play(m_shootSound);
                 m_nextShot = Time.time + m_cooldown;
                 return true;
             }

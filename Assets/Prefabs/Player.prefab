@@ -152,6 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 765efc2017b4f5244814480d14c2ca81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_jumpSound: {fileID: 11400000, guid: 5395b3af5034de9408cc837a74d8cbc7, type: 2}
+  m_landSound: {fileID: 11400000, guid: fc83b6d36242ba246a9fce8210e477af, type: 2}
+  m_bumpSound: {fileID: 11400000, guid: a524df5682215024a871e985d9c302fb, type: 2}
 --- !u!114 &4689172509319026244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c2198093ad37c4894637895248d3dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_deathSfx: {fileID: 11400000, guid: 63ab6778af2a00c4bab302ea3f3fa5d8, type: 2}
 --- !u!114 &4689172509319026246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +196,8 @@ MonoBehaviour:
   m_baseWeapon: {fileID: 4424704050251794639, guid: 95c5232829b378642b354122ca7c68c5, type: 3}
   m_throwHorizontalSpeed: 180
   m_throwVerticalSpeed: 80
+  m_throwSound: {fileID: 11400000, guid: d49ef7beb345b1441b761e7acd944c01, type: 2}
+  m_pickSound: {fileID: 11400000, guid: 940922c6b5081f54187d550b695cd355, type: 2}
 --- !u!114 &4689172509319026247
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -926,11 +926,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555110480}
   m_CullTransparentMesh: 1
---- !u!1 &578890188 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9203058945489188708, guid: ba2a011a3eb784645b3110b3bc6cb2bc, type: 3}
+--- !u!114 &578890190 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4233659809327586148, guid: ba2a011a3eb784645b3110b3bc6cb2bc, type: 3}
   m_PrefabInstance: {fileID: 9203058946051153576}
   m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: deaf1cdfe1ecaac4a9c2289d1b7ab407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &696199087
 GameObject:
   m_ObjectHideFlags: 0
@@ -3167,7 +3173,8 @@ MonoBehaviour:
     Color: {r: 1, g: 0.41037738, b: 0.41037738, a: 1}
   m_transition: {fileID: 4029489946284241306}
   m_background: {fileID: 1645448715}
-  m_inBetween: {fileID: 578890188}
+  m_inBetween: {fileID: 578890190}
+  m_winSound: {fileID: 11400000, guid: 13ca9daca15cc2a429626d3b32e6292f, type: 2}
 --- !u!4 &1785796697
 Transform:
   m_ObjectHideFlags: 0
@@ -4334,6 +4341,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4233659809327586148, guid: ba2a011a3eb784645b3110b3bc6cb2bc, type: 3}
+      propertyPath: m_background
+      value: 
+      objectReference: {fileID: 1645448715}
     - target: {fileID: 9203058944102952240, guid: ba2a011a3eb784645b3110b3bc6cb2bc, type: 3}
       propertyPath: m_ColliderPaths.Array.size
       value: 0

@@ -79,6 +79,7 @@ MonoBehaviour:
   m_cooldown: 1
   m_bulletPower: 1
   m_bulletPrefab: {fileID: 1590148216754875200, guid: 21cdb08eecbbc8842a90bc595a7d4004, type: 3}
+  m_shootSound: {fileID: 11400000, guid: 7be5e2a1d3bb9924ca3760c22b4b0cd5, type: 2}
   m_bulletSpeed: 400
 --- !u!1001 &8261496000462845517
 PrefabInstance:

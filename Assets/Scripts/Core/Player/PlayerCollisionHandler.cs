@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 
 using Cake.Genoise;
+using Cake.Opera.Data;
 
 using Game.Shared;
 
@@ -10,6 +11,8 @@ namespace Game
 {
     public class PlayerCollisionHandler : MonoBehaviour
     {
+        [SerializeField] private SFXSound m_deathSfx;
+
         private LayersConfig m_layersConfig;
         private Health m_health;
         private PlayerControler m_playerController;
@@ -38,6 +41,7 @@ namespace Game
 
         private IEnumerator _GameOver()
         {
+            SoundsManager.Instance.Play(m_deathSfx);
             yield return new WaitForSeconds(1f);
             GameManager.Instance.SetGameState(EGameState.GAME_OVER);
         }

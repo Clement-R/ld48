@@ -13,6 +13,7 @@ namespace Game
     {
         public Action OnArenaFinished;
 
+        public Color Color => m_color;
         [SerializeField] private Spawner m_spawner;
         [SerializeField] private WeaponSpawner m_weaponSpawner;
         [SerializeField] private List<Wave> m_waves;
@@ -27,9 +28,11 @@ namespace Game
         private bool m_isStarted = false;
         private bool m_isDone = false;
         private bool m_currentIsLastWave => m_lastWaveIndex + 1 >= m_waves.Count;
+        private Color m_color;
 
         public void SetColor(Color p_color)
         {
+            m_color = p_color;
             var tileMaterial = m_tilemapRenderer.material;
             tileMaterial.SetColor("_Color", p_color);
         }

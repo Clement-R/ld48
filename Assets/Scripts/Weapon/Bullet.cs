@@ -1,6 +1,7 @@
 using UnityEngine;
 
 using Cake.Genoise;
+using Cake.Opera.Data;
 using Cake.Pooling;
 
 using Game.Shared;
@@ -10,6 +11,7 @@ namespace Game
     public class Bullet : MonoBehaviour
     {
         [SerializeField] private float m_timeToLive = 5f;
+        [SerializeField] private SFXSound m_hitSound;
 
         private Rigidbody2D m_rb;
         private LayersConfig m_layersConfig;
@@ -53,13 +55,9 @@ namespace Game
                     if (health.Alive)
                     {
                         health.TakeDamage(m_power);
+                        SoundsManager.Instance.Play(m_hitSound);
                     }
                 }
-
-                //TODO: enemy hit effect
-
-                // Vector2 direction = p_other.gameObject.transform.position.x > transform.position.x ? -Vector2.right : Vector2.right;
-                // m_playerController.KnockBack(direction);
 
                 Destroy(gameObject);
                 return;

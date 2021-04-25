@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e31cdb8bb16f5544bb0c321abaf7277, type: 3}
-  m_Name: PlayerJump
+  m_Name: land
   m_EditorClassIdentifier: 
-  Clip: {fileID: 0}
+  Clip: {fileID: 8300000, guid: 4d98a89081e32b34aaf2867df3248243, type: 3}
   Random: 0
   Clips: []
   VolumeRandom: 0
-  Volume: 1
+  Volume: 0.33
   VolumeRange:
     Min: 0
     Max: 1
   PitchRandom: 0
   Pitch: 1
   PitchRange:
-    Min: 0
-    Max: 1
+    Min: 0.5
+    Max: 1.5
   MixerGroup: {fileID: 5553635743492457132, guid: 7757da1cbfc93d248afabfa16bbf0865, type: 2}
