@@ -35,8 +35,8 @@ namespace Game
 
             foreach (var hit in hits)
             {
-                // kill enemy -> call on death
-                hit.collider.gameObject.GetComponent<DeathEffect>().Death();
+                var health = hit.collider.gameObject.GetComponent<Health>();
+                health.TakeDamage(1);
             }
 
             if (hits.Length > 0)

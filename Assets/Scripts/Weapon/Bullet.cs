@@ -3,24 +3,27 @@ using UnityEngine;
 using Cake.Genoise;
 using Cake.Pooling;
 
+using Game.Shared;
+
 namespace Game
 {
     public class Bullet : MonoBehaviour
     {
-        public int Power
-        {
-            get;
-            private set;
-        }
-
         [SerializeField] private float m_timeToLive = 5f;
 
         private Rigidbody2D m_rb;
+        private LayersConfig m_layersConfig;
+        private int m_power;
         private float m_despawnTime = float.MinValue;
+
+        private void Start()
+        {
+            m_layersConfig = ConfigsManager.Instance.Get<LayersConfig>();
+        }
 
         public void Setup(int p_power, Vector3 p_velocity)
         {
-            Power = p_power;
+            m_power = p_power;
 
             m_rb = GetComponent<Rigidbody2D>();
             m_rb.velocity = p_velocity;
@@ -40,9 +43,32 @@ namespace Game
             }
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnCollisionEnter2D(Collision2D p_other)
         {
-            //TODO:
+            var layer = p_other.gameObject.layer;
+            if (m_layersConfig.Enemy.value == (m_layersConfig.Enemy.value | (1 << layer)))
+            {
+                if (p_other.gameObject.TryGetComponent(out Health health))
+                {
+                    if (health.Alive)
+                    {
+                        health.TakeDamage(m_power);
+                    }
+                }
+
+                //TODO: enemy hit effect
+
+                // Vector2 direction = p_other.gameObject.transform.position.x > transform.position.x ? -Vector2.right : Vector2.right;
+                // m_playerController.KnockBack(direction);
+
+                Destroy(gameObject);
+                return;
+            }
+
+            if (m_layersConfig.Ground.value == (m_layersConfig.Ground.value | (1 << layer)))
+            {
+                //TODO:
+            }
         }
 
         private void Despawn()

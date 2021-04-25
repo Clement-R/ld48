@@ -27,3 +27,6 @@ MonoBehaviour:
   Destructible:
     serializedVersion: 2
     m_Bits: 1024
+  Bullet:
+    serializedVersion: 2
+    m_Bits: 2048
