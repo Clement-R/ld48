@@ -7883,6 +7883,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9203058945489188709}
     m_Modifications:
+    - target: {fileID: 1154039884214189425, guid: 9cceaa0d82e1faa418a09df1cc5fc2b4, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 99258d33cba003442be6d20693fb22f9, type: 2}
     - target: {fileID: 8335565059472900657, guid: 9cceaa0d82e1faa418a09df1cc5fc2b4, type: 3}
       propertyPath: m_Name
       value: PlayerStatic

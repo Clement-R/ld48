@@ -7,8 +7,13 @@ using Game.Shared;
 
 namespace Game
 {
+
     public class PlayerControler : PausableMonoBehaviour
     {
+        public Action OnJump;
+        public bool Grounded => m_isGrounded;
+        public Vector2 CurrentInput => m_input;
+
         private PlayerManager m_playerManager = null;
         private PlayerConfig m_playerConfig = null;
         private LayersConfig m_layersConfig;

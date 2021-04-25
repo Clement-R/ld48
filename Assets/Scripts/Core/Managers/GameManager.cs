@@ -31,7 +31,7 @@ namespace Game
 
         public void SetGameState(EGameState p_state)
         {
-            if (GameState.Value == EGameState.GAME && p_state == EGameState.MAIN_MENU)
+            if ((GameState.Value == EGameState.GAME || GameState.Value == EGameState.PAUSE || GameState.Value == EGameState.GAME_OVER || GameState.Value == EGameState.WIN) && p_state == EGameState.MAIN_MENU)
             {
                 Routine.Start(_GameToMainMenu());
             }

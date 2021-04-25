@@ -24,6 +24,7 @@ namespace Game
         private float m_nextWeaponSpawn;
         private bool m_isStarted = false;
         private bool m_isDone = false;
+        private bool m_currentIsLastWave => m_lastWaveIndex + 1 >= m_waves.Count;
 
         [ContextMenu("Start arena")]
         public void StartArena()
@@ -37,19 +38,15 @@ namespace Game
 
         private void NextWave()
         {
-            var nextIndex = m_lastWaveIndex + 1;
-            if (nextIndex >= m_waves.Count)
+            if (m_currentIsLastWave)
             {
-                OnArenaFinished?.Invoke();
-                m_isDone = true;
                 return;
             }
 
-            var wave = Instantiate(m_waves[nextIndex]);
+            m_lastWaveIndex++;
+            var wave = Instantiate(m_waves[m_lastWaveIndex]);
             m_currentWaves.Add(wave);
             wave.Spawn(m_spawner);
-
-            m_lastWaveIndex = nextIndex;
 
             m_nextSpawn = m_delayBetweenWaves.Random();
 
@@ -67,7 +64,7 @@ namespace Game
             m_nextWeaponSpawn -= Time.deltaTime;
 
             // Check next wave
-            if (m_currentWaves.All(e => e.IsDone()) || (m_lastWaveIndex < m_waves.Count && m_nextSpawn <= 0f))
+            if (m_currentWaves.All(e => e.IsDone()) || (!m_currentIsLastWave && m_nextSpawn <= 0f))
             {
                 NextWave();
             }
@@ -79,8 +76,13 @@ namespace Game
                 m_nextWeaponSpawn = m_delayBetweenWeaponSpawn.Random();
             }
 
-            // Clear
+            // Clear and check finish condition
             m_currentWaves.RemoveAll(e => e.IsDone());
+            if (m_currentWaves.Count == 0 && m_currentIsLastWave)
+            {
+                OnArenaFinished?.Invoke();
+                m_isDone = true;
+            }
         }
 
         protected override void PauseChanged(bool p_pause)
