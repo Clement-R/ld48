@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 using Cake.Genoise;
 using Cake.Utils;
@@ -23,6 +24,7 @@ namespace Game
         [SerializeField] private List<Arena> m_levels;
 
         [SerializeField] private TransitionUI m_transition;
+        [SerializeField] private RawImage m_background;
         [SerializeField] private GameObject m_inBetween;
 
         private int m_levelIndex = -1;
@@ -124,7 +126,13 @@ namespace Game
             var arena = p_arena.ArenaPrefab.Instantiate();
 
             m_currentArena = arena.GetComponent<ArenaManager>();
+
+            Color.RGBToHSV(p_arena.Color, out float h, out float s, out float v);
+            var desaturatedColor = Color.HSVToRGB(h, s - 0.2f, v, false);
+            m_currentArena.SetColor(desaturatedColor);
             m_currentArena.OnArenaFinished += NextArena;
+
+            m_background.material.SetColor("_Color", p_arena.Color);
 
             m_arenaName = p_arena.Name;
         }

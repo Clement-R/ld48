@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 using Cake.Data;
 
@@ -17,6 +18,7 @@ namespace Game
         [SerializeField] private List<Wave> m_waves;
         [SerializeField] private ValueRange m_delayBetweenWaves;
         [SerializeField] private ValueRange m_delayBetweenWeaponSpawn;
+        [SerializeField] private TilemapRenderer m_tilemapRenderer;
 
         private List<Wave> m_currentWaves = new List<Wave>();
         private int m_lastWaveIndex = -1;
@@ -25,6 +27,12 @@ namespace Game
         private bool m_isStarted = false;
         private bool m_isDone = false;
         private bool m_currentIsLastWave => m_lastWaveIndex + 1 >= m_waves.Count;
+
+        public void SetColor(Color p_color)
+        {
+            var tileMaterial = m_tilemapRenderer.material;
+            tileMaterial.SetColor("_Color", p_color);
+        }
 
         [ContextMenu("Start arena")]
         public void StartArena()

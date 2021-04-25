@@ -21,7 +21,7 @@ namespace Game
         public GameObject Spawn(GameObject p_template)
         {
             var spawner = m_spawners.Random();
-            while (Physics2D.OverlapBox(spawner.transform.position, new Vector2(10f, 10f), 0f, m_layersConfig.Player.value))
+            while (Physics2D.OverlapBox(spawner.transform.position, new Vector2(25f, 25f), 0f, m_layersConfig.Player.value))
             {
                 spawner = m_spawners.Random();
             }

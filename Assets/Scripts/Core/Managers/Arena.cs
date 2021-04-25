@@ -7,5 +7,6 @@ namespace Game
     {
         public string Name;
         public GameObject ArenaPrefab;
+        public Color Color;
     }
 }
