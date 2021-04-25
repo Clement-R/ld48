@@ -36,3 +36,6 @@ MonoBehaviour:
   WeaponPickup:
     serializedVersion: 2
     m_Bits: 8192
+  Persistant:
+    serializedVersion: 2
+    m_Bits: 16384

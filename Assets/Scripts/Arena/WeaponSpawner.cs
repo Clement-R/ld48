@@ -32,7 +32,7 @@ namespace Game
         private GameObject Spawn(GameObject p_template)
         {
             var spawner = m_spawners.Random();
-            return Instantiate(p_template, spawner.transform.position, spawner.transform.rotation);
+            return Instantiate(p_template, spawner.transform.position, spawner.transform.rotation, transform);
         }
 
         private void OnDrawGizmos()

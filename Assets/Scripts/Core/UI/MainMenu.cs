@@ -54,7 +54,7 @@ namespace Game
 
         private void StartGame()
         {
-            m_gameManager.GameState.Value = EGameState.GAME;
+            m_gameManager.SetGameState(EGameState.GAME);
         }
 
         private void GoToCredits()

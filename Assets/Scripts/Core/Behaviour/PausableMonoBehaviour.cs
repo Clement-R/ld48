@@ -16,7 +16,8 @@ namespace Game
 
         protected virtual void OnDestroy()
         {
-            m_gameManager.Pause.OnValueChanged -= PauseChanged;
+            if (m_gameManager != null)
+                m_gameManager.Pause.OnValueChanged -= PauseChanged;
         }
 
         protected abstract void PauseChanged(bool p_pause);

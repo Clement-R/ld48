@@ -111,7 +111,6 @@ namespace Game
             GetComponent<Collider2D>().enabled = false;
 
             var force = Vector2.up * m_playerConfig.PlayerJumpHeight + p_direction * m_playerConfig.PlayerHorizontalSpeed;
-            Debug.Log(force);
             m_rb.AddForce(force, ForceMode2D.Impulse);
         }
     }

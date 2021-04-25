@@ -4,5 +4,6 @@ public enum EGameState
     MAIN_MENU = 1,
     GAME = 2,
     PAUSE = 3,
-    GAME_OVER = 4
+    GAME_OVER = 4,
+    WIN = 5
 }

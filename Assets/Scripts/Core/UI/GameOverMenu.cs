@@ -46,13 +46,13 @@ namespace Game
 
         private void Restart()
         {
-            m_gameManager.GameState.Value = EGameState.GAME;
-            m_gameManager.ReloadLevel();
+            m_gameManager.SetGameState(EGameState.GAME);
+            m_gameManager.Restart();
         }
 
         private void GoToMainMenu()
         {
-            m_gameManager.GameState.Value = EGameState.MAIN_MENU;
+            m_gameManager.SetGameState(EGameState.MAIN_MENU);
         }
     }
 }

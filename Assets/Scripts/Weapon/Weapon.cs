@@ -64,8 +64,6 @@ namespace Game
 
         private void OnTriggerStay2D(Collider2D p_other)
         {
-            Debug.Log($"On trigger enter {p_other.gameObject.name}");
-
             if (m_layersConfig.Player.value == (m_layersConfig.Player.value | (1 << p_other.gameObject.layer)))
             {
                 if (p_other.gameObject.TryGetComponent(out PlayerWeapon playerWeapon))
@@ -77,6 +75,8 @@ namespace Game
 
         public void Throw(Vector2 p_direction)
         {
+            transform.SetParent(GameManager.Instance.CurrentArena.transform);
+
             m_rb.constraints = RigidbodyConstraints2D.None;
             m_rb.simulated = true;
             m_rb.AddForce(p_direction, ForceMode2D.Impulse);
@@ -92,6 +92,7 @@ namespace Game
             {
                 m_rb.drag = 50f;
                 m_rb.gravityScale *= 10f;
+                gameObject.layer = (int) Mathf.Log(m_layersConfig.Persistant.value, 2);
             }
         }
 

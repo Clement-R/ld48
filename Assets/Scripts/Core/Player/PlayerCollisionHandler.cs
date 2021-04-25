@@ -1,4 +1,8 @@
+using System.Collections;
+
 using UnityEngine;
+
+using Cake.Genoise;
 
 using Game.Shared;
 
@@ -24,9 +28,18 @@ namespace Game
             if (m_layersConfig.Enemy.value == (m_layersConfig.Enemy.value | (1 << layer)))
             {
                 m_health.TakeDamage(1);
+
                 Vector2 direction = p_other.gameObject.transform.position.x > transform.position.x ? -Vector2.right : Vector2.right;
                 m_playerController.KnockBack(direction);
+
+                Routine.Start(_GameOver());
             }
+        }
+
+        private IEnumerator _GameOver()
+        {
+            yield return new WaitForSeconds(1f);
+            GameManager.Instance.SetGameState(EGameState.GAME_OVER);
         }
     }
 }

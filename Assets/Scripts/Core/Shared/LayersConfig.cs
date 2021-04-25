@@ -15,5 +15,6 @@ namespace Game.Shared
         public LayerMask Bullet;
         public LayerMask Weapon;
         public LayerMask WeaponPickup;
+        public LayerMask Persistant;
     }
 }

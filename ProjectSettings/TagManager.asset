@@ -19,7 +19,7 @@ TagManager:
   - Bullet
   - Weapon
   - WeaponPickup
-  - 
+  - Persistant
   - 
   - 
   - 
@@ -40,6 +40,15 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: VFXBackground
+    uniqueID: 3390727369
+    locked: 0
+  - name: Weapon
+    uniqueID: 3871531595
+    locked: 0
+  - name: Level
+    uniqueID: 2284931343
     locked: 0
   - name: Enemy
     uniqueID: 2488438239

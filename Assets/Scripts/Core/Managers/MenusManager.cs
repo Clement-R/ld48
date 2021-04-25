@@ -19,13 +19,13 @@ namespace Game
         {
             if (Input.GetKeyDown(KeyCode.P))
             {
-                m_gameManager.GameState.Value = EGameState.PAUSE;
+                m_gameManager.SetGameState(EGameState.PAUSE);
                 m_gameManager.Pause.Value = !m_gameManager.Pause.Value;
             }
 
             if (Input.GetKeyDown(KeyCode.G))
             {
-                m_gameManager.GameState.Value = EGameState.GAME_OVER;
+                m_gameManager.SetGameState(EGameState.GAME_OVER);
             }
         }
     }

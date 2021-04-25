@@ -42,12 +42,12 @@ namespace Game
 
         private void Resume()
         {
-            m_gameManager.GameState.Value = EGameState.GAME;
+            m_gameManager.SetGameState(EGameState.GAME);
         }
 
         private void GoToMainMenu()
         {
-            m_gameManager.GameState.Value = EGameState.MAIN_MENU;
+            m_gameManager.SetGameState(EGameState.MAIN_MENU);
         }
     }
 }
