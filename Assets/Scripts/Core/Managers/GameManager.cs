@@ -14,6 +14,7 @@ namespace Game
     public class GameManager : Singleton<GameManager>
     {
         public Action<string> OnArenaChange; // arena name 
+        public Action OnGameStart;
 
         public GameObject CurrentArena => m_currentArena.gameObject;
 
@@ -38,6 +39,10 @@ namespace Game
             {
                 Routine.Start(_MainMenuToGame());
             }
+            else
+            {
+                GameState.Value = p_state;
+            }
         }
 
         private IEnumerator _MainMenuToGame()
@@ -45,7 +50,6 @@ namespace Game
             Pause.Value = true;
             yield return m_transition.Show();
             StartGame();
-            GameState.Value = EGameState.GAME;
             yield return m_transition.Hide();
             Pause.Value = false;
         }
@@ -64,6 +68,8 @@ namespace Game
         {
             m_levelIndex = -1;
             NextArena();
+            GameState.Value = EGameState.GAME;
+            OnGameStart?.Invoke();
         }
 
         private void NextArena()
@@ -131,11 +137,14 @@ namespace Game
 
         private void StopGame()
         {
-            //TODO:
+            Destroy(m_currentArena.gameObject);
+            m_currentArena = null;
+            m_levelIndex = -1;
         }
 
         public void Restart()
         {
+            StopGame();
             StartGame();
         }
     }
