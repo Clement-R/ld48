@@ -4114,17 +4114,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 9203058944102952240, guid: ba2a011a3eb784645b3110b3bc6cb2bc, type: 3}
-      propertyPath: m_ColliderPaths.Array.size
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9203058945489188708, guid: ba2a011a3eb784645b3110b3bc6cb2bc, type: 3}
       propertyPath: m_Name
       value: InBetween
-      objectReference: {fileID: 0}
-    - target: {fileID: 9203058945489188708, guid: ba2a011a3eb784645b3110b3bc6cb2bc, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9203058945489188709, guid: ba2a011a3eb784645b3110b3bc6cb2bc, type: 3}
       propertyPath: m_RootOrder

@@ -1,20 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &2581284990228392571
-MonoBehaviour:
+--- !u!95 &8869785831935285658
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7855184401254867553}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc612b94042aa4440a292219a62835e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_speed: 8
-  m_wallCastDistance: 8
-  m_edgeCastDistance: 8
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5db247fce6b664045a489364183afeb1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &333567987673072256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28,6 +32,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_baseHealth: 1
+--- !u!114 &2581284990228392571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7855184401254867553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc612b94042aa4440a292219a62835e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_speed: 12
+  m_wallCastDistance: 4
+  m_edgeCastDistance: 4
 --- !u!1001 &5408787850479375501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79,6 +98,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2741820795955836650, guid: b5c1c614350a2b640b9df27a453c8c4c, type: 3}
+      propertyPath: m_Size.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741820795955836650, guid: b5c1c614350a2b640b9df27a453c8c4c, type: 3}
+      propertyPath: m_Size.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741820795955836650, guid: b5c1c614350a2b640b9df27a453c8c4c, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741820795955836650, guid: b5c1c614350a2b640b9df27a453c8c4c, type: 3}
+      propertyPath: m_Offset.y
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741820795955836650, guid: b5c1c614350a2b640b9df27a453c8c4c, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741820795955836650, guid: b5c1c614350a2b640b9df27a453c8c4c, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741820795955836651, guid: b5c1c614350a2b640b9df27a453c8c4c, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2741820795955836651, guid: b5c1c614350a2b640b9df27a453c8c4c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -4494829401127444046, guid: e06cf1b88d8944f4f958864906380bc2, type: 3}
     - target: {fileID: 2741820795955836652, guid: b5c1c614350a2b640b9df27a453c8c4c, type: 3}
       propertyPath: m_Name
       value: Walker
